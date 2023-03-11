@@ -6,7 +6,7 @@ class Wallet:
         self.identification = identification
 
     def send(self, target):
-        amount = round(random.uniform(0, self.current_value*0.05), random.randint(0,5))
+        amount = round(random.uniform(0, self.current_value*0.01), random.randint(0,5))
         self.current_value -= amount
         target.receive(amount)
 

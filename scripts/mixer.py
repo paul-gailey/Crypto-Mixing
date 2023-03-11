@@ -41,6 +41,8 @@ class Mixer:
             # Check if there is a transaction in the queue
             # If there is, process it
             # If not, wait
+    def get_wallets(self):
+        return self.wallets
 
 
 

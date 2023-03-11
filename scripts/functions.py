@@ -9,7 +9,6 @@ def split_list(lst):
 def check_lists(list1, list2):
     for i in range(len(list1)):
         if list1[i] == list2[i]:
-            print("Error")
             list1.remove(list1[i])
             list2.remove(list2[i])
 
@@ -51,8 +50,8 @@ def input_target_wallets():
 def input_amounts():
     value_check = False
     while value_check is False:
-        input_amount = input("What is the amoount you would like to Mix: ")
-        current_amount = input("How much do you currently have in that wallet: ")
+        input_amount = int(input("What is the amount you would like to Mix: "))
+        current_amount = int(input("How much do you currently have in that wallet: "))
 
         if input_amount > current_amount:
             print("You do not have enough in your wallet to Mix")
