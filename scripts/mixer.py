@@ -48,8 +48,6 @@ class Mixer:
     def stop(self):
         pass
 
-    def mix(self):
-        raise NotImplementedError
 
     def get_output(self):
         return self.output

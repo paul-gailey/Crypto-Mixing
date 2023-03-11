@@ -9,7 +9,7 @@
 # Once at the top of the queue, it is processed
 
 import pandas as pd
-from scripts import mixer, wallet
+from scripts import mixer, wallet, functions
 
 def main():
     mixer1 = mixer.Mixer(0, 50)
@@ -18,6 +18,14 @@ def main():
     wallet_data = pd.read_csv('data/wallet_data.csv')
 
     wallets_for_mixer1 = wallet_data.sample(n=1000)
+
+    target_wallets = []
+
+    input_wallet = input("What is the wallet ID you will be transferring from: ")
+    input_amount, current_amount = functions.input_amounts()
+    target_wallets = functions.input_target_wallets()
+
+    pulling_wallet = wallet.Wallet(input_wallet, current_amount)
 
     for _, row in wallets_for_mixer1.iterrows():
         mixer1.add_wallet(wallet.Wallet(row['ID'], row['VALUE']))
